@@ -1,2 +1,3 @@
 # lahacks-zen-project
-LAHacks - Zen project
+Repository for LAHacks - Zen project: puzzle game
+
