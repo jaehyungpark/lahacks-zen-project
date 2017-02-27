@@ -9,4 +9,6 @@ Features to be added:
 * starting position of shapes are more natural (like sitting on the bottom)
 * (optional) have a outline of a winning state of the game
 
-Phase 2 - creating a jigsaw puzzle-like game
+Kinect-depth library implemented from Daniel Shiffman.
+
+Next goal is to implement processing to handle objects and use designed shapes.
