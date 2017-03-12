@@ -13,7 +13,7 @@ void setup() {
  triangle = new ArrayList();
  
  
- size(500, 400);
+ size(512, 424);
  smooth();
  
  // draw boxes only for this time
@@ -25,7 +25,7 @@ void setup() {
 }
 
 void draw() {  
- background(255);
+ background(125,144,255);
  for(int i = 0; i < rectangle.size(); i++){
    Query myQuery1 = (Query)rectangle.get(i);
    myQuery1.display();
