@@ -7,12 +7,11 @@ Kinect2 kinect2;
 float a = 0;
 
 void setup() {
-  size(800, 600, P3D);
+  size(800, 600, P3D); 
   kinect2 = new Kinect2(this);
   kinect2.initDepth();
   kinect2.initDevice();
 }
-
 
 void draw() {
   background(0);
@@ -52,8 +51,6 @@ void draw() {
   // Rotate
   a += 0.0015;
 }
-
-
 
 //calculte the xyz camera position based on the depth data
 PVector depthToPointCloudPos(int x, int y, float depthValue) {
