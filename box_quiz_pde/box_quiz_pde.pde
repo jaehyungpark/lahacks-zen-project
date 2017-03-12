@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-ArrayList myQueries;
+ArrayList rectangle;
+ArrayList triangle;
 
 Query queryBeingDragged;
 
@@ -8,24 +9,27 @@ int dragY;
 
 void setup() {
  queryBeingDragged = null;
- myQueries = new ArrayList();
+ rectangle = new ArrayList();
+ triangle = new ArrayList();
  
- size(800, 600);
+ 
+ size(500, 400);
  smooth();
-  
- myQueries.add( new Query("box1", color(0,0,255), width/5.0+200, height/5.0+100, 0, 60, 40, 0));
- myQueries.add( new Query("box2", color(255,0,0), width/5.0, 4.0*height/5.0, 0, 80, 20, 0));
- myQueries.add( new Query("box3", color(0,255,0), width/5.0+50, height/5.0+50, 0, 40, 60, 0));
- myQueries.add( new Query("triangle1", color(0,255,255), width/5.0+100, height/5.0, 0, 50, 50, 0));
+ 
+ // draw boxes only for this time
+ // later add different shapes or import images
+ rectangle.add( new Query("box1", color(255,255,0), width/7.0+80, height/7.0+80, 0, 40, 40, 0));
+ rectangle.add( new Query("box2", color(0,0,255), width/7.0, height/7.0+80, 0, 40, 40, 0));
+ rectangle.add( new Query("box3", color(0,255,0), width/7.0+80, height/7.0, 0, 40, 40, 0));
+ rectangle.add( new Query("box4", color(255,0,0), width/7.0, height/7.0, 0, 40, 40, 0));
 }
 
-void draw() {
+void draw() {  
  background(255);
- 
- for(int i = 0; i < myQueries.size(); i++){
-   Query myQuery1 = (Query)myQueries.get(i);
+ for(int i = 0; i < rectangle.size(); i++){
+   Query myQuery1 = (Query)rectangle.get(i);
    myQuery1.display();
- }
+ }  
 }
 
 class Query {
@@ -40,8 +44,10 @@ class Query {
  int dQy;
  int dQz;
 
+// think of the z axis value and add more values to figure out the points for the triangle
+
  // c'tor
- Query(String name, color tempQc, float tempQx, float tempQy,float tempQz, int tempdQx, int tempdQy, int tempdQz) {
+ Query(String name, color tempQc, float tempQx, float tempQy, float tempQz, int tempdQx, int tempdQy, int tempdQz) {
   this.name = name;
   qc = tempQc;
   qx = tempQx;
@@ -72,9 +78,9 @@ class Query {
 }  
 
 void mousePressed() {
- for(int i = 0; i < myQueries.size(); i++){ 
+ for(int i = 0; i < rectangle.size(); i++){ 
     // note how I made it generic
-   Query myQuery1 = (Query)myQueries.get(i);
+   Query myQuery1 = (Query)rectangle.get(i);
    evaluateQuerySelection(myQuery1);
  }
  println("pressed");
